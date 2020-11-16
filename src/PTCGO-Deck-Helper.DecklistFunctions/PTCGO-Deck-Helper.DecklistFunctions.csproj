@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PTCGO-Deck-Helper.API\PTCGO-Deck-Helper.API.csproj" />
     <ProjectReference Include="..\PTCGO-Deck-Helper.DeckImporter\PTCGO-Deck-Helper.DeckImporter.csproj" />
   </ItemGroup>
 

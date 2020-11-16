@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PTCGO_Deck_Helper.DecklistFunctions;
+using PTCGO_Deck_Helper.API.Models;
+using System.Linq;
 
 namespace PTCGO_Deck_Helper.Custom_Controls
 {
@@ -21,17 +23,19 @@ namespace PTCGO_Deck_Helper.Custom_Controls
     public partial class PrizeCard : UserControl
     {
         bool _initialLoad = true;
+        List<Card> _cards = new List<Card>();
 
         public PrizeCard()
         {
             InitializeComponent();
         }
 
-        public void SetComboBoxValues(Decklist decklist)
+        public void SetComboBoxValues(Decklist decklist, List<Card> cards)
         {
             var uniqueValues = Functions.GetUniqueCardsFromDeck(decklist);
             cmb_SelectPrize.ItemsSource = uniqueValues;
             cmb_SelectPrize.SelectedIndex = 0;
+            if(!_cards.Any()) { _cards = cards; }
         }
 
         private void cmb_SelectPrize_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -39,14 +43,14 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             if(_initialLoad) { _initialLoad = false; return; }
 
             cmb_SelectPrize.Visibility = Visibility.Hidden;
-
-            txt_PrizeCard.Text = cmb_SelectPrize.SelectedItem.ToString();
-            txt_PrizeCard.Visibility = Visibility.Visible;
+            var cardString = cmb_SelectPrize.SelectedItem.ToString();
+            //TODO: Need an Energy Mapper
+            img_PrizeCard.Source = new BitmapImage(new Uri(Functions.GetCardDetailsForSpecificCard(cardString, _cards).imageUrlHiRes));
         }
 
-        private void txt_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
+        private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            txt_PrizeCard.Text = "DRAWN";
+            img_PrizeCard.Opacity = 1;
         }
     }
 }

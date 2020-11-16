@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:Width="250">
     <Grid>
-        <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25"/>
+        <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25" MouseDown="img_PrizeCard_MouseDown"/>
         <ComboBox x:Name="cmb_SelectPrize" Height="30" SelectionChanged="cmb_SelectPrize_SelectionChanged"/>
-        <TextBlock x:Name="txt_PrizeCard" HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" MouseDown="txt_PrizeCard_MouseDown"/>
     </Grid>
 </UserControl>

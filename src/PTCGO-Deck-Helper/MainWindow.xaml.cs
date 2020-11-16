@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PTCGO_Deck_Helper.DeckImporter;
+using PTCGO_Deck_Helper.API.Models;
+using PTCGO_Deck_Helper.API;
 
 namespace PTCGO_Deck_Helper
 {
@@ -23,10 +25,12 @@ namespace PTCGO_Deck_Helper
     public partial class MainWindow : Window
     {
         Decklist _decklist = new Decklist();
+        List<Card> _cards = new List<Card>();
 
         public MainWindow()
         {
             InitializeComponent();
+            _cards = APIHelper.GetCards().ToList();
         }
 
         private void ImportDecklist_Click(object sender, RoutedEventArgs e)
@@ -35,12 +39,13 @@ namespace PTCGO_Deck_Helper
             {
                 var import = Clipboard.GetText();
                 _decklist = Importer.CreateDecklist(import);
-                prz_One.SetComboBoxValues(_decklist);
-                prz_Two.SetComboBoxValues(_decklist);
-                prz_Three.SetComboBoxValues(_decklist);
-                prz_Four.SetComboBoxValues(_decklist);
-                prz_Five.SetComboBoxValues(_decklist);
-                prz_Six.SetComboBoxValues(_decklist);
+
+                prz_One.SetComboBoxValues(_decklist, _cards);
+                prz_Two.SetComboBoxValues(_decklist, _cards);
+                prz_Three.SetComboBoxValues(_decklist, _cards);
+                prz_Four.SetComboBoxValues(_decklist, _cards);
+                prz_Five.SetComboBoxValues(_decklist, _cards);
+                prz_Six.SetComboBoxValues(_decklist, _cards);
             }
             else
             {

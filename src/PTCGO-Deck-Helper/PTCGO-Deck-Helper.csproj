@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PTCGO-Deck-Helper.API\PTCGO-Deck-Helper.API.csproj" />
     <ProjectReference Include="..\PTCGO-Deck-Helper.DeckImporter\PTCGO-Deck-Helper.DeckImporter.csproj" />
     <ProjectReference Include="..\PTCGO-Deck-Helper.DecklistFunctions\PTCGO-Deck-Helper.DecklistFunctions.csproj" />
   </ItemGroup>
