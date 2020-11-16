@@ -6,6 +6,8 @@
     <RootNamespace>PTCGO_Deck_Helper</RootNamespace>
     <UseWPF>true</UseWPF>
     <AssemblyName>PTCGO-Deck-Helper</AssemblyName>
+    <ApplicationIcon>Resources\Logo.ico</ApplicationIcon>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
