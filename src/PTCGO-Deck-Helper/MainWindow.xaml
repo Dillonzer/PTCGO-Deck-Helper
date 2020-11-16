@@ -1,0 +1,48 @@
+﻿<Window x:Class="PTCGO_Deck_Helper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PTCGO_Deck_Helper"
+        mc:Ignorable="d"
+        Title="PTCGO Deck Helper" Height="450" Width="800">
+    <Grid Background="DimGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="stp_Decklists" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" >
+            <Button Width="100" FontSize="50" FontWeight="Bold" ToolTip="Import Decklist">
+                <TextBlock Text="+" Margin="0,-14,0,0"/>
+            </Button>
+        </StackPanel>
+        <Grid Background="Gray" Grid.ColumnSpan="2" Margin="0,54,0,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="stp_Pokemon" Grid.Column="0" Orientation="Vertical">
+                    <TextBlock Text="Pokemon" FontSize="25"></TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="stp_Trainers" Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="Trainers" FontSize="25"></TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="stp_Energy" Grid.Column="2" Orientation="Vertical">
+                    <TextBlock Text="Energy" FontSize="25"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Prizes" FontSize="25"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
