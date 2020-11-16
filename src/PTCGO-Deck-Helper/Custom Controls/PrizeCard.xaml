@@ -15,6 +15,7 @@
             </Grid.ColumnDefinitions>
             <ComboBox Grid.Column="0" x:Name="cmb_SelectPrize" Height="30"/>
             <Button Grid.Column="1" Content="Set" x:Name="btn_SetPrize" Height="30" Click="btn_SetPrize_Click"  />
+            <TextBlock x:Name="tbx_CardName" Grid.ColumnSpan="2" Height="30" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </UserControl>

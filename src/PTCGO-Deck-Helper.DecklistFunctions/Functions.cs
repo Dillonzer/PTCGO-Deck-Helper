@@ -35,29 +35,36 @@ namespace PTCGO_Deck_Helper.DecklistFunctions
 
         public static Card GetCardDetailsForSpecificCard(string card, List<Card> cards)
         {
-            var set = card.Split(" ").LastOrDefault().Trim(); ;
-            var cardName = card.Substring(0, card.LastIndexOf(" "));
-
-            //Just a way to get energy
-            if(set.Contains("Energy"))
+            try
             {
-                set = "EVO";
-            }
-            
-            //Just used with the way I made the names in my API
-            cardName = cardName.Replace("-GX", " GX");
-            cardName = cardName.Replace("-EX", " EX");
-            cardName = cardName.Replace(" {G}", " Grass");
-            cardName = cardName.Replace(" {M}", " Metal");
-            cardName = cardName.Replace(" {R}", " Fire");
-            cardName = cardName.Replace(" {C}", " Colorless");
-            cardName = cardName.Replace(" {F}", " Fighting");
-            cardName = cardName.Replace(" {W}", " Water");
-            cardName = cardName.Replace(" {L}", " Lightning");
-            cardName = cardName.Replace(" {D}", " Dark");
-            cardName = cardName.Replace(" {P}", " Psychic");
+                var set = card.Split(" ").LastOrDefault().Trim(); ;
+                var cardName = card.Substring(0, card.LastIndexOf(" "));
 
-            return cards.Where(x => x.set.ptcgoCode.ToLower() == set.ToLower() && x.name.ToLower() == cardName.ToLower()).FirstOrDefault();
+                //Just a way to get energy
+                if (set.Contains("Energy"))
+                {
+                    set = "EVO";
+                }
+
+                //Just used with the way I made the names in my API
+                cardName = cardName.Replace("-GX", " GX");
+                cardName = cardName.Replace("-EX", " EX");
+                cardName = cardName.Replace(" {G}", " Grass");
+                cardName = cardName.Replace(" {M}", " Metal");
+                cardName = cardName.Replace(" {R}", " Fire");
+                cardName = cardName.Replace(" {C}", " Colorless");
+                cardName = cardName.Replace(" {F}", " Fighting");
+                cardName = cardName.Replace(" {W}", " Water");
+                cardName = cardName.Replace(" {L}", " Lightning");
+                cardName = cardName.Replace(" {D}", " Dark");
+                cardName = cardName.Replace(" {P}", " Psychic");
+
+                return cards.Where(x => x.set.ptcgoCode.ToLower() == set.ToLower() && x.name.ToLower() == cardName.ToLower()).FirstOrDefault();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

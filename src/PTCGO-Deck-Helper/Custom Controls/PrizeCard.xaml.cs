@@ -54,6 +54,7 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             cmb_SelectPrize.SelectedIndex = 0;
             cmb_SelectPrize.Visibility = Visibility.Visible;
             btn_SetPrize.Visibility = Visibility.Visible;
+            tbx_CardName.Visibility = Visibility.Hidden;
             img_PrizeCard.Opacity = 0.25;
             img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
         }
@@ -63,7 +64,17 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             cmb_SelectPrize.Visibility = Visibility.Hidden;
             btn_SetPrize.Visibility = Visibility.Hidden;
             var cardString = cmb_SelectPrize.SelectedItem.ToString();
-            img_PrizeCard.Source = new BitmapImage(new Uri(Functions.GetCardDetailsForSpecificCard(cardString, _cards).imageUrlHiRes));
+            var card = Functions.GetCardDetailsForSpecificCard(cardString, _cards);
+            if (card != null)
+            {
+                img_PrizeCard.Source = new BitmapImage(new Uri(card.imageUrlHiRes));
+            }
+            else
+            {
+                tbx_CardName.Visibility = Visibility.Visible;
+                tbx_CardName.Text = cardString;
+                img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+            }
         }
     }
 }
