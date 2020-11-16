@@ -16,10 +16,10 @@
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
         <StackPanel x:Name="stp_Decklists" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="3" >
-            <Button Width="100" FontWeight="Bold" Click="ImportDecklist_Click">
+            <Button x:Name="btn_ImportDecklist" Width="100" FontWeight="Bold" Click="ImportDecklist_Click">
                 <TextBlock  VerticalAlignment="Center" Text="Import Decklist" />
             </Button>
-            <Button Width="100" FontWeight="Bold" >
+            <Button x:Name="btn_ResetPrizes"  Width="100" FontWeight="Bold" Click="btn_ResetPrizes_Click" >
                 <TextBlock  VerticalAlignment="Center" Text="Reset Prizes" />
             </Button>
         </StackPanel>

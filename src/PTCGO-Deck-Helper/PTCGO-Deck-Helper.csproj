@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\default-card-image.png">
+    <Content Include="Resources\default-card-image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
 
 </Project>

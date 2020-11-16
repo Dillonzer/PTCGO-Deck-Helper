@@ -52,5 +52,15 @@ namespace PTCGO_Deck_Helper
                 MessageBox.Show("There is no decklist!");
             }
         }
+
+        private void btn_ResetPrizes_Click(object sender, RoutedEventArgs e)
+        {
+            prz_One.Reset();
+            prz_Two.Reset();
+            prz_Three.Reset();
+            prz_Four.Reset();
+            prz_Five.Reset();
+            prz_Six.Reset();
+        }
     }
 }

@@ -22,7 +22,6 @@ namespace PTCGO_Deck_Helper.Custom_Controls
     /// </summary>
     public partial class PrizeCard : UserControl
     {
-        bool _initialLoad = true;
         List<Card> _cards = new List<Card>();
 
         public PrizeCard()
@@ -38,19 +37,34 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             if(!_cards.Any()) { _cards = cards; }
         }
 
-        private void cmb_SelectPrize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(_initialLoad) { _initialLoad = false; return; }
+            if (img_PrizeCard.Opacity == 0.25)
+            {
+                img_PrizeCard.Opacity = 1;
+            }
+            else
+            {
+                img_PrizeCard.Opacity = 0.25;
+            }
+        }
 
+        public void Reset()
+        {
+            cmb_SelectPrize.SelectedIndex = 0;
+            cmb_SelectPrize.Visibility = Visibility.Visible;
+            btn_SetPrize.Visibility = Visibility.Visible;
+            img_PrizeCard.Opacity = 0.25;
+            img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+        }
+
+        private void btn_SetPrize_Click(object sender, RoutedEventArgs e)
+        {
             cmb_SelectPrize.Visibility = Visibility.Hidden;
+            btn_SetPrize.Visibility = Visibility.Hidden;
             var cardString = cmb_SelectPrize.SelectedItem.ToString();
             //TODO: Need an Energy Mapper
             img_PrizeCard.Source = new BitmapImage(new Uri(Functions.GetCardDetailsForSpecificCard(cardString, _cards).imageUrlHiRes));
-        }
-
-        private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            img_PrizeCard.Opacity = 1;
         }
     }
 }

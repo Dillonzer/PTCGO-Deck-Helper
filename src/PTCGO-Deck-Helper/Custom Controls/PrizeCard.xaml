@@ -8,6 +8,13 @@
              d:DesignHeight="300" d:Width="250">
     <Grid>
         <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25" MouseDown="img_PrizeCard_MouseDown"/>
-        <ComboBox x:Name="cmb_SelectPrize" Height="30" SelectionChanged="cmb_SelectPrize_SelectionChanged"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" x:Name="cmb_SelectPrize" Height="30"/>
+            <Button Grid.Column="1" Content="Set" x:Name="btn_SetPrize" Height="30" Click="btn_SetPrize_Click"  />
+        </Grid>
     </Grid>
 </UserControl>
