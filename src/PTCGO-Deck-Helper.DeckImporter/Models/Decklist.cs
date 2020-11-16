@@ -9,5 +9,7 @@ namespace PTCGO_Deck_Helper.DeckImporter.Models
         public Dictionary<string, int> Pokemon { get; set; }
         public Dictionary<string, int> Trainers { get; set; }
         public Dictionary<string, int> Energy { get; set; }
+
+        public int TotalCards { get; set; }
     }
 }

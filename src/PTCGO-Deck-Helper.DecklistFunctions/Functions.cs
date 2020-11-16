@@ -37,6 +37,12 @@ namespace PTCGO_Deck_Helper.DecklistFunctions
         {
             var set = card.Split(" ").LastOrDefault().Trim(); ;
             var cardName = card.Substring(0, card.LastIndexOf(" "));
+
+            //Just a way to get energy
+            if(set.Contains("Energy"))
+            {
+                set = "EVO";
+            }
             
             //Just used with the way I made the names in my API
             cardName = cardName.Replace("-GX", " GX");

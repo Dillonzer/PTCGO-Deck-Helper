@@ -10,81 +10,94 @@ namespace PTCGO_Deck_Helper.DeckImporter
     {
         public static Decklist CreateDecklist(string import)
         {
-            var pokemon = new Dictionary<string, int>();
-            var trainers = new Dictionary<string, int>();
-            var energy = new Dictionary<string, int>();
-            var collectPokemon = false;
-            var collectTrainers = false;
-            var collectEnergy = false;
-
-            var splitImport = import.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
-            foreach (var line in splitImport)
+            try
             {
-                if (line.StartsWith("**") || line == string.Empty)
+                var pokemon = new Dictionary<string, int>();
+                var trainers = new Dictionary<string, int>();
+                var energy = new Dictionary<string, int>();
+                var collectPokemon = false;
+                var collectTrainers = false;
+                var collectEnergy = false;
+                var totalCards = 0;
+
+                var splitImport = import.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+                foreach (var line in splitImport)
                 {
-                    continue;
+                    if (line.StartsWith("**") || line == string.Empty)
+                    {
+                        continue;
+                    }
+
+                    if (line.StartsWith("##Pokémon"))
+                    {
+                        collectPokemon = true;
+                        collectTrainers = false;
+                        collectEnergy = false;
+                        continue;
+                    }
+
+                    if (line.StartsWith("##Trainer Cards"))
+                    {
+                        collectTrainers = true;
+                        collectEnergy = false;
+                        collectPokemon = false;
+                        continue;
+                    }
+
+                    if (line.StartsWith("##Energy"))
+                    {
+                        collectEnergy = true;
+                        collectTrainers = false;
+                        collectPokemon = false;
+                        continue;
+                    }
+
+                    if (line.StartsWith("Total Cards - 60"))
+                    {
+                        break;
+                    }
+
+                    var lineItem = line.Split(" ");
+                    var cardName = string.Empty;
+                    for (var i = 2; i < lineItem.Length - 1; i++)
+                    {
+                        cardName += lineItem[i] + " ";
+                    }
+
+                    if (collectPokemon)
+                    {
+                        pokemon.Add(cardName.Trim(), int.Parse(lineItem[1]));
+                        totalCards += int.Parse(lineItem[1]);
+                    }
+
+                    if (collectTrainers)
+                    {
+                        trainers.Add(cardName.Trim(), int.Parse(lineItem[1]));
+                        totalCards += int.Parse(lineItem[1]);
+                    }
+                    if (collectEnergy)
+                    {
+                        energy.Add(cardName.Trim(), int.Parse(lineItem[1]));
+                        totalCards += int.Parse(lineItem[1]);
+                    }
                 }
 
-                if (line.StartsWith("##Pokémon"))
+                var decklist = new Decklist()
                 {
-                    collectPokemon = true;
-                    collectTrainers = false;
-                    collectEnergy = false;
-                    continue;
-                }
+                    Pokemon = pokemon,
+                    Trainers = trainers,
+                    Energy = energy
+                };
 
-                if (line.StartsWith("##Trainer Cards"))
-                {
-                    collectTrainers = true;
-                    collectEnergy = false;
-                    collectPokemon = false;
-                    continue;
-                }
+                decklist.TotalCards = totalCards;
 
-                if (line.StartsWith("##Energy"))
-                {
-                    collectEnergy = true;
-                    collectTrainers = false;
-                    collectPokemon = false;
-                    continue;
-                }
-
-                if (line.StartsWith("Total Cards - 60"))
-                {
-                    break;
-                }
-
-                var lineItem = line.Split(" ");
-                var cardName = string.Empty;
-                for (var i = 2; i < lineItem.Length - 1; i++)
-                {
-                    cardName += lineItem[i] + " ";
-                }
-
-                if (collectPokemon)
-                {
-                    pokemon.Add(cardName.Trim(), int.Parse(lineItem[1]));
-                }
-
-                if (collectTrainers)
-                {
-                    trainers.Add(cardName.Trim(), int.Parse(lineItem[1]));
-                }
-                if (collectEnergy)
-                {
-                    energy.Add(cardName.Trim(), int.Parse(lineItem[1]));
-                }
+                return decklist;
             }
-
-            var decklist = new Decklist()
+            catch(Exception ex)
             {
-                Pokemon = pokemon,
-                Trainers = trainers,
-                Energy = energy
-            };
-
-            return decklist;
+                return null;
+            }
         }
     }
 }

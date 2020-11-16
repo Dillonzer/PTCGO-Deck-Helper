@@ -63,7 +63,6 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             cmb_SelectPrize.Visibility = Visibility.Hidden;
             btn_SetPrize.Visibility = Visibility.Hidden;
             var cardString = cmb_SelectPrize.SelectedItem.ToString();
-            //TODO: Need an Energy Mapper
             img_PrizeCard.Source = new BitmapImage(new Uri(Functions.GetCardDetailsForSpecificCard(cardString, _cards).imageUrlHiRes));
         }
     }

@@ -40,12 +40,23 @@ namespace PTCGO_Deck_Helper
                 var import = Clipboard.GetText();
                 _decklist = Importer.CreateDecklist(import);
 
+                if (_decklist.TotalCards != 60 || _decklist == null)
+                {
+                    MessageBox.Show("The decklist imported is invalid. Please re-copy and try again.");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show($"This is the decklist you imported:\n{import}");
+                }
+
                 prz_One.SetComboBoxValues(_decklist, _cards);
                 prz_Two.SetComboBoxValues(_decklist, _cards);
                 prz_Three.SetComboBoxValues(_decklist, _cards);
                 prz_Four.SetComboBoxValues(_decklist, _cards);
                 prz_Five.SetComboBoxValues(_decklist, _cards);
                 prz_Six.SetComboBoxValues(_decklist, _cards);
+                
             }
             else
             {
