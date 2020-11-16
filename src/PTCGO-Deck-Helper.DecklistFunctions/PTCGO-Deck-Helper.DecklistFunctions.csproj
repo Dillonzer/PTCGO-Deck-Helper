@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>PTCGO_Deck_Helper.DecklistFunctions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PTCGO-Deck-Helper.DeckImporter\PTCGO-Deck-Helper.DeckImporter.csproj" />
+  </ItemGroup>
+
+</Project>

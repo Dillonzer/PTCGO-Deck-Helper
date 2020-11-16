@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PTCGO_Deck_Helper.Custom_Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="60">
+             d:DesignHeight="300" d:Width="250">
     <Grid>
-        <ComboBox Name="cmb_SelectPrize"/>
-        <TextBlock Name="txt_PrizeCard" FontSize="35" VerticalAlignment="Center" Visibility="Hidden"/>
+        <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25"/>
+        <ComboBox x:Name="cmb_SelectPrize" Height="30" SelectionChanged="cmb_SelectPrize_SelectionChanged"/>
+        <TextBlock x:Name="txt_PrizeCard" HorizontalAlignment="Center" FontWeight="Bold" Visibility="Hidden" MouseDown="txt_PrizeCard_MouseDown"/>
     </Grid>
 </UserControl>

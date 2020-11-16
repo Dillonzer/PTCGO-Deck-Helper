@@ -6,55 +6,51 @@
         xmlns:local="clr-namespace:PTCGO_Deck_Helper"
         xmlns:Custom_Controls="clr-namespace:PTCGO_Deck_Helper.Custom_Controls" x:Class="PTCGO_Deck_Helper.MainWindow"
         mc:Ignorable="d"
-        Title="PTCGO Deck Helper" Height="496" Width="900">
+        Title="PTCGO Deck Helper" Height="700" Width="854">
     <Grid Background="DimGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="stp_Decklists" Grid.Row="0" Orientation="Horizontal" >
-            <Button Width="100" FontSize="50" FontWeight="Bold" ToolTip="Import Decklist" Click="ImportDecklist_Click">
-                <TextBlock Text="+" Margin="0,-14,0,0"/>
+        <StackPanel x:Name="stp_Decklists" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="3" >
+            <Button Width="100" FontWeight="Bold" Click="ImportDecklist_Click">
+                <TextBlock  VerticalAlignment="Center" Text="Import Decklist" />
+            </Button>
+            <Button Width="100" FontWeight="Bold" >
+                <TextBlock  VerticalAlignment="Center" Text="Reset Prizes" />
             </Button>
         </StackPanel>
-        <Grid Background="Gray" Grid.Row="1">
+        <Grid Background="Gray" Grid.ColumnSpan="3" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel x:Name="stp_Pokemon" Grid.Column="0" Orientation="Vertical">
-                    <TextBlock Text="Pokemon" FontSize="25"/>
-                </StackPanel>
-                <StackPanel x:Name="stp_Trainers" Grid.Column="1" Orientation="Vertical">
-                    <TextBlock Text="Trainers" FontSize="25"/>
-                </StackPanel>
-                <StackPanel x:Name="stp_Energy" Grid.Column="2" Orientation="Vertical">
-                    <TextBlock Text="Energy" FontSize="25"/>
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="Prizes" FontSize="25" HorizontalAlignment="Center"/>
-                <StackPanel Grid.Row="1" x:Name="stp_PrizeCards" >
-                    <Custom_Controls:PrizeCard x:Name="prz_One" Width="290"/>
-                    <Custom_Controls:PrizeCard x:Name="prz_Two" Width="290"/>
-                    <Custom_Controls:PrizeCard x:Name="prz_Three" Width="290"/>
-                    <Custom_Controls:PrizeCard x:Name="prz_Four" Width="290"/>
-                    <Custom_Controls:PrizeCard x:Name="prz_Five" Width="290"/>
-                    <Custom_Controls:PrizeCard x:Name="prz_Six" Width="290"/>
-                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="0" x:Name="prz_One" Width="250" Margin="0,10,0,0"/>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="1" x:Name="prz_Two" Width="250" Margin="0,10,0,0"/>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="2" x:Name="prz_Three" Width="250" Margin="0,10,0,0" />
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="0" x:Name="prz_Four" Width="250" Margin="0,10,0,10"/>
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="1" x:Name="prz_Five" Width="250" Margin="0,10,0,10"/>
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="2" x:Name="prz_Six" Width="250" Margin="0,10,0,10"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

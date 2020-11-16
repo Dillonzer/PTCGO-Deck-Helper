@@ -5,10 +5,22 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>PTCGO_Deck_Helper</RootNamespace>
     <UseWPF>true</UseWPF>
+    <AssemblyName>PTCGO-Deck-Helper</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\default-card-image.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PTCGO-Deck-Helper.DeckImporter\PTCGO-Deck-Helper.DeckImporter.csproj" />
+    <ProjectReference Include="..\PTCGO-Deck-Helper.DecklistFunctions\PTCGO-Deck-Helper.DecklistFunctions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\default-card-image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

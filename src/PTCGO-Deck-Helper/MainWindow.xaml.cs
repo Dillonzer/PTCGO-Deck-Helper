@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PTCGO_Deck_Helper.DeckImporter.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PTCGO_Deck_Helper.DeckImporter;
 
 namespace PTCGO_Deck_Helper
 {
@@ -20,6 +22,8 @@ namespace PTCGO_Deck_Helper
     /// </summary>
     public partial class MainWindow : Window
     {
+        Decklist _decklist = new Decklist();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,8 +33,14 @@ namespace PTCGO_Deck_Helper
         {
             if (Clipboard.ContainsText())
             {
-                var decklist = Clipboard.GetText();
-                var imported = DeckImporter.Importer.CreateDecklist(decklist);
+                var import = Clipboard.GetText();
+                _decklist = Importer.CreateDecklist(import);
+                prz_One.SetComboBoxValues(_decklist);
+                prz_Two.SetComboBoxValues(_decklist);
+                prz_Three.SetComboBoxValues(_decklist);
+                prz_Four.SetComboBoxValues(_decklist);
+                prz_Five.SetComboBoxValues(_decklist);
+                prz_Six.SetComboBoxValues(_decklist);
             }
             else
             {
