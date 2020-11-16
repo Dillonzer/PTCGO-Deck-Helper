@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTCGO-Deck-Helper", "PTCGO-Deck-Helper\PTCGO-Deck-Helper.csproj", "{69B932F7-CAF7-4244-A8B4-2088F781FF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PTCGO-Deck-Helper", "PTCGO-Deck-Helper\PTCGO-Deck-Helper.csproj", "{69B932F7-CAF7-4244-A8B4-2088F781FF87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTCGO-Deck-Helper.DeckImporter", "PTCGO-Deck-Helper.DeckImporter\PTCGO-Deck-Helper.DeckImporter.csproj", "{6EB198A3-5F20-4E89-ACF4-604E7671624E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{69B932F7-CAF7-4244-A8B4-2088F781FF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B932F7-CAF7-4244-A8B4-2088F781FF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B932F7-CAF7-4244-A8B4-2088F781FF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB198A3-5F20-4E89-ACF4-604E7671624E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB198A3-5F20-4E89-ACF4-604E7671624E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB198A3-5F20-4E89-ACF4-604E7671624E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB198A3-5F20-4E89-ACF4-604E7671624E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,5 +24,18 @@ namespace PTCGO_Deck_Helper
         {
             InitializeComponent();
         }
+
+        private void ImportDecklist_Click(object sender, RoutedEventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                var decklist = Clipboard.GetText();
+                var imported = DeckImporter.Importer.CreateDecklist(decklist);
+            }
+            else
+            {
+                MessageBox.Show("There is no decklist!");
+            }
+        }
     }
 }
