@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:Width="250">
     <Grid>
-        <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25" MouseDown="img_PrizeCard_MouseDown"/>
+        <Image x:Name="img_PrizeCard" Source="/Resources/default-card-image.png" Stretch="Uniform" Opacity=".25" MouseDown="img_PrizeCard_MouseDown" StretchDirection="Both"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>

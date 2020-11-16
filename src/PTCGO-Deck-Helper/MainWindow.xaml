@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:PTCGO_Deck_Helper"
         xmlns:Custom_Controls="clr-namespace:PTCGO_Deck_Helper.Custom_Controls" x:Class="PTCGO_Deck_Helper.MainWindow"
         mc:Ignorable="d"
-        Title="PTCGO Deck Helper" Height="700" Width="854">
+        Title="PTCGO Deck Helper" Height="700" Width="854" Icon="/Resources/Logo.ico"
+    MinWidth="854" MinHeight="700">
     <Grid Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

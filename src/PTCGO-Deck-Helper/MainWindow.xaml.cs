@@ -60,7 +60,7 @@ namespace PTCGO_Deck_Helper
             }
             else
             {
-                MessageBox.Show("There is no decklist!");
+                MessageBox.Show("There is no decklist on your clipboard!");
             }
         }
 

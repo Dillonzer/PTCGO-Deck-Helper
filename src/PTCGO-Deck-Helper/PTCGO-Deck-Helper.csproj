@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Resources\default-card-image.png" />
+    <None Remove="Resources\Logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,9 @@
 
   <ItemGroup>
     <Content Include="Resources\default-card-image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Logo.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
