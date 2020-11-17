@@ -17,3 +17,6 @@ Download the release `PTCGO-Deck-Helper-v.X.X.X.zip` file from the [Latest Relea
 
 ## Other Information
 I've decided to make this fully open-source since I think us as a community can make this amazing. Feel free to open issues, fork and create your own tools, or even fork and create Pull Requests to make this one better. 
+
+## Gif Demo
+![Demo](https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/%21Logos/PTCGO-Deck-Tracker-CurrentVersion.gif)
