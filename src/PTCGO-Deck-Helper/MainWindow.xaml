@@ -20,6 +20,9 @@
             <Button x:Name="btn_ImportDecklist" Width="100" FontWeight="Bold" Click="ImportDecklist_Click">
                 <TextBlock  VerticalAlignment="Center" Text="Import Decklist" />
             </Button>
+            <Button x:Name="btn_SetPrizes" Width="100" FontWeight="Bold" Click="btn_SetPrizes_Click">
+                <TextBlock  VerticalAlignment="Center" Text="Set Prizes" />
+            </Button>
             <Button x:Name="btn_ResetPrizes"  Width="100" FontWeight="Bold" Click="btn_ResetPrizes_Click" >
                 <TextBlock  VerticalAlignment="Center" Text="Reset Prizes" />
             </Button>

@@ -73,5 +73,11 @@ namespace PTCGO_Deck_Helper
             prz_Five.Reset();
             prz_Six.Reset();
         }
+
+        private void btn_SetPrizes_Click(object sender, RoutedEventArgs e)
+        {
+            var setPrizes = new SetPrizes(_decklist, _cards);
+            setPrizes.Show();
+        }
     }
 }
