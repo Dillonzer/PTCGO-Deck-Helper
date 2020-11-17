@@ -66,5 +66,112 @@ namespace PTCGO_Deck_Helper
                 stp_Energy.Children.Add(control);
             }
         }
+
+        private void btn_SubmitPrizes_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(PrizeCardSelector pokemon in stp_Pokemon.Children)
+            {
+                if(pokemon._prized)
+                {
+                    if (_prizes.Count() < 6)
+                    {
+                        for (var i = 0; i < pokemon._amountPrized; i++)
+                        {
+                            if (pokemon._apiCardInfo == null)
+                            {
+                                _prizes.Add(pokemon._cardInfo.Key);
+                            }
+                            else
+                            {
+                                _prizes.Add(pokemon._apiCardInfo.imageUrlHiRes);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        _prizes = new List<string>();
+                        return;
+                    }
+                }
+            }
+
+            foreach (PrizeCardSelector trainers in stp_Trainers.Children)
+            {
+                if (trainers._prized)
+                {
+                    if (_prizes.Count() < 6)
+                    {
+                        for (var i = 0; i < trainers._amountPrized; i++)
+                        {
+                            if (trainers._apiCardInfo == null)
+                            {
+                                _prizes.Add(trainers._cardInfo.Key);
+                            }
+                            else
+                            {
+                                _prizes.Add(trainers._apiCardInfo.imageUrlHiRes);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        _prizes = new List<string>();
+                        return;
+                    }
+                }
+                
+            }
+
+            foreach (PrizeCardSelector energy in stp_Energy.Children)
+            {
+                if (energy._prized)
+                {
+                    if (_prizes.Count() < 6)
+                    {
+                        for (var i = 0; i < energy._amountPrized; i++)
+                        {
+                            if (energy._apiCardInfo == null)
+                            {
+                                _prizes.Add(energy._cardInfo.Key);
+                            }
+                            else
+                            {
+                                _prizes.Add(energy._apiCardInfo.imageUrlHiRes);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        _prizes = new List<string>();
+                        return;
+                    }
+                }
+                
+            }
+
+            if(_prizes.Count != 6)
+            {
+                MessageBox.Show("You have not selected 6 prizes. Please try again.");
+                return;
+            }
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(MainWindow))
+                {
+                    (window as MainWindow).prz_One.SetPrize(_prizes[0]);
+                    (window as MainWindow).prz_Two.SetPrize(_prizes[1]);
+                    (window as MainWindow).prz_Three.SetPrize(_prizes[2]);
+                    (window as MainWindow).prz_Four.SetPrize(_prizes[3]);
+                    (window as MainWindow).prz_Five.SetPrize(_prizes[4]);
+                    (window as MainWindow).prz_Six.SetPrize(_prizes[5]);
+                }
+            }
+
+            Close();
+        }
     }
 }

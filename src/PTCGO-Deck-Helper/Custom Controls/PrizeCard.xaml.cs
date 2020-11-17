@@ -22,19 +22,9 @@ namespace PTCGO_Deck_Helper.Custom_Controls
     /// </summary>
     public partial class PrizeCard : UserControl
     {
-        List<Card> _cards = new List<Card>();
-
         public PrizeCard()
         {
             InitializeComponent();
-        }
-
-        public void SetComboBoxValues(Decklist decklist, List<Card> cards)
-        {
-            var uniqueValues = Functions.GetUniqueCardsFromDeck(decklist);
-            cmb_SelectPrize.ItemsSource = uniqueValues;
-            cmb_SelectPrize.SelectedIndex = 0;
-            if(!_cards.Any()) { _cards = cards; }
         }
 
         private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
@@ -51,29 +41,22 @@ namespace PTCGO_Deck_Helper.Custom_Controls
 
         public void Reset()
         {
-            cmb_SelectPrize.SelectedIndex = 0;
-            cmb_SelectPrize.Visibility = Visibility.Visible;
-            btn_SetPrize.Visibility = Visibility.Visible;
-            tbx_CardName.Visibility = Visibility.Hidden;
             img_PrizeCard.Opacity = 0.25;
             img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+            tbx_CardName.Visibility = Visibility.Hidden;
         }
 
-        private void btn_SetPrize_Click(object sender, RoutedEventArgs e)
+        public void SetPrize(string url)
         {
-            cmb_SelectPrize.Visibility = Visibility.Hidden;
-            btn_SetPrize.Visibility = Visibility.Hidden;
-            var cardString = cmb_SelectPrize.SelectedItem.ToString();
-            var card = Functions.GetCardDetailsForSpecificCard(cardString, _cards);
-            if (card != null)
+            if (!url.Contains("digitalocean"))
             {
-                img_PrizeCard.Source = new BitmapImage(new Uri(card.imageUrlHiRes));
+                img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                tbx_CardName.Text = url;
+                tbx_CardName.Visibility = Visibility.Visible;
             }
             else
             {
-                tbx_CardName.Visibility = Visibility.Visible;
-                tbx_CardName.Text = cardString;
-                img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                img_PrizeCard.Source = new BitmapImage(new Uri(url));
             }
         }
     }

@@ -23,6 +23,9 @@ namespace PTCGO_Deck_Helper.Custom_Controls
         public KeyValuePair<string, int> _cardInfo;
         public List<Card> _cards;
         public int _cardCount;
+        public bool _prized;
+        public int _amountPrized;
+        public Card _apiCardInfo;
 
         public PrizeCardSelector()
         {
@@ -40,10 +43,10 @@ namespace PTCGO_Deck_Helper.Custom_Controls
 
         public void SetImageAndCount()
         {
-            var card = Functions.GetCardDetailsForSpecificCard(_cardInfo.Key, _cards);
-            if (card != null)
+            _apiCardInfo = Functions.GetCardDetailsForSpecificCard(_cardInfo.Key, _cards);
+            if (_apiCardInfo != null)
             {
-                img_CardTitle.Source = new BitmapImage(new Uri(card.imageUrlHiRes));
+                img_CardTitle.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
             }
             else
             {
@@ -58,11 +61,30 @@ namespace PTCGO_Deck_Helper.Custom_Controls
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                _cardCount--;
+                if (_cardCount > 0)
+                {
+                    _amountPrized++;
+                    _cardCount--;
+                }
             }
             else
             {
-                _cardCount++;
+                if (_cardCount < 4 && _cardCount < _cardInfo.Value)
+                {
+                    _amountPrized--;
+                    _cardCount++;
+                }
+            }
+
+            if(_cardCount != _cardInfo.Value)
+            {
+                _prized = true;
+                img_CardTitle.Opacity = 0.25;
+            }
+            else
+            {
+                _prized = false;
+                img_CardTitle.Opacity = 1;
             }
 
             tbx_CardCount.Text = _cardCount.ToString();

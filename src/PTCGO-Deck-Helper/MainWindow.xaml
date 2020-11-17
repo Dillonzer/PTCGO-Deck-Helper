@@ -48,12 +48,12 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="0" x:Name="prz_One" Width="250" Margin="0,10,0,0"/>
-                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="1" x:Name="prz_Two" Width="250" Margin="0,10,0,0"/>
-                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="2" x:Name="prz_Three" Width="250" Margin="0,10,0,0" />
-                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="0" x:Name="prz_Four" Width="250" Margin="0,10,0,10"/>
-                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="1" x:Name="prz_Five" Width="250" Margin="0,10,0,10"/>
-                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="2" x:Name="prz_Six" Width="250" Margin="0,10,0,10"/>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="0" x:Name="prz_One" Width="250" Margin="0,10,0,0" x:FieldModifier="public"/>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="1" x:Name="prz_Two" Width="250" Margin="0,10,0,0" x:FieldModifier="public"/>
+                    <Custom_Controls:PrizeCard Grid.Row="0" Grid.Column="2" x:Name="prz_Three" Width="250" Margin="0,10,0,0" x:FieldModifier="public"/>
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="0" x:Name="prz_Four" Width="250" Margin="0,10,0,10" x:FieldModifier="public"/>
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="1" x:Name="prz_Five" Width="250" Margin="0,10,0,10" x:FieldModifier="public"/>
+                    <Custom_Controls:PrizeCard Grid.Row="1" Grid.Column="2" x:Name="prz_Six" Width="250" Margin="0,10,0,10" x:FieldModifier="public"/>
                 </Grid>
             </Grid>
         </Grid>
