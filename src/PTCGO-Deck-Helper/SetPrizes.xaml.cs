@@ -154,7 +154,8 @@ namespace PTCGO_Deck_Helper
 
             if(_prizes.Count != 6)
             {
-                MessageBox.Show("You have not selected 6 prizes. Please try again.");
+                MessageBox.Show("You have not selected 6 prizes. Please try again."); 
+                _prizes = new List<string>();
                 return;
             }
 

@@ -42,17 +42,17 @@ namespace PTCGO_Deck_Helper
 
                 if (_decklist.TotalCards != 60 || _decklist == null)
                 {
-                    MessageBox.Show("The decklist imported is invalid. Please re-copy and try again.");
+                    MessageBox.Show("The decklist imported is invalid. Please re-copy and try again.", "Error");
                     return;
                 }
                 else
                 {
-                    MessageBox.Show($"This is the decklist you imported:\n{import}");
+                    MessageBox.Show($"This is the decklist you imported:\n{import}", "Decklist");
                 }                
             }
             else
             {
-                MessageBox.Show("There is no decklist on your clipboard!");
+                MessageBox.Show("There is no decklist on your clipboard!", "Error");
             }
         }
 
@@ -68,6 +68,12 @@ namespace PTCGO_Deck_Helper
 
         private void btn_SetPrizes_Click(object sender, RoutedEventArgs e)
         {
+            if(_decklist.TotalCards != 60 || _decklist == null)
+            {
+                MessageBox.Show("Looks like you don't have a decklist imported. Please import a decklist first.", "Error");
+                return;
+            }
+
             var setPrizes = new SetPrizes(_decklist, _cards);
             setPrizes.Show();
         }

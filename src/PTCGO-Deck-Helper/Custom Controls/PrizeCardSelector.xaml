@@ -15,9 +15,9 @@
         <TextBlock Grid.Column="0"  x:Name="tbx_CardName" Text="Name" FontSize="20" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,0,0,0" Visibility="Hidden"/>
         <Rectangle Grid.Column="1" Grid.RowSpan="1000">
             <Rectangle.Fill>
-                <SolidColorBrush Color="Red"/>
+                <SolidColorBrush Color="MidnightBlue"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="tbx_CardCount" Grid.Column="1" Text="X" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="35"/>
+        <TextBlock x:Name="tbx_CardCount" Grid.Column="1" Text="X" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="35" Foreground="White"/>
     </Grid>
 </UserControl>
