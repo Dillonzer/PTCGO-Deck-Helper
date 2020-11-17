@@ -31,6 +31,12 @@ namespace PTCGO_Deck_Helper
         {
             InitializeComponent();
             _cards = APIHelper.GetCards().ToList();
+            if(Properties.Settings.Default.ReversedPrizeHighlighting)
+            {
+                menu_ReversePrizeHighlighting.IsChecked = true;
+            }
+
+            
         }
 
         private void ImportDecklist_Click(object sender, RoutedEventArgs e)
@@ -56,16 +62,6 @@ namespace PTCGO_Deck_Helper
             }
         }
 
-        private void btn_ResetPrizes_Click(object sender, RoutedEventArgs e)
-        {
-            prz_One.Reset();
-            prz_Two.Reset();
-            prz_Three.Reset();
-            prz_Four.Reset();
-            prz_Five.Reset();
-            prz_Six.Reset();
-        }
-
         private void btn_SetPrizes_Click(object sender, RoutedEventArgs e)
         {
             if(_decklist.TotalCards != 60 || _decklist == null)
@@ -74,8 +70,29 @@ namespace PTCGO_Deck_Helper
                 return;
             }
 
+            prz_One.Reset();
+            prz_Two.Reset();
+            prz_Three.Reset();
+            prz_Four.Reset();
+            prz_Five.Reset();
+            prz_Six.Reset();
+
             var setPrizes = new SetPrizes(_decklist, _cards);
             setPrizes.Show();
+        }
+
+        private void menu_ReversePrizeHighlighting_Click(object sender, RoutedEventArgs e)
+        {
+            if(menu_ReversePrizeHighlighting.IsChecked)
+            {
+                Properties.Settings.Default.ReversedPrizeHighlighting = true;
+            }
+            else
+            {
+                Properties.Settings.Default.ReversedPrizeHighlighting = false;
+            }
+
+            Properties.Settings.Default.Save();
         }
     }
 }

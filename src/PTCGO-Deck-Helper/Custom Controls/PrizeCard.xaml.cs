@@ -25,9 +25,19 @@ namespace PTCGO_Deck_Helper.Custom_Controls
         public PrizeCard()
         {
             InitializeComponent();
+            var reversed = Properties.Settings.Default.ReversedPrizeHighlighting;
+            if (reversed)
+            {
+                img_PrizeCard.Opacity = 1;
+            }
+            else
+            {
+                img_PrizeCard.Opacity = 0.25;
+
+            }
         }
 
-        private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
+            private void img_PrizeCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (img_PrizeCard.Opacity == 0.25)
             {
@@ -41,7 +51,15 @@ namespace PTCGO_Deck_Helper.Custom_Controls
 
         public void Reset()
         {
-            img_PrizeCard.Opacity = 0.25;
+            var reversed = Properties.Settings.Default.ReversedPrizeHighlighting;
+            if (reversed)
+            {
+                img_PrizeCard.Opacity = 1;
+            }
+            else
+            {
+                img_PrizeCard.Opacity = 0.25;
+            }
             img_PrizeCard.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
             tbx_CardName.Visibility = Visibility.Hidden;
         }

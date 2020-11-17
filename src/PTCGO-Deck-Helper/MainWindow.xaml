@@ -13,21 +13,24 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="stp_Decklists" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="3" >
+        <Menu Grid.Row="0" x:Name="menu_Settings" >
+            <MenuItem Header="Settings">
+                <MenuItem x:Name="menu_ReversePrizeHighlighting" Header="Reverse Prize Highlighting" IsCheckable="True" Click="menu_ReversePrizeHighlighting_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel x:Name="stp_Decklists" Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="3" >
             <Button x:Name="btn_ImportDecklist" Width="100" FontWeight="Bold" Click="ImportDecklist_Click">
                 <TextBlock  VerticalAlignment="Center" Text="Import Decklist" />
             </Button>
             <Button x:Name="btn_SetPrizes" Width="100" FontWeight="Bold" Click="btn_SetPrizes_Click">
                 <TextBlock  VerticalAlignment="Center" Text="Set Prizes" />
             </Button>
-            <Button x:Name="btn_ResetPrizes"  Width="100" FontWeight="Bold" Click="btn_ResetPrizes_Click" >
-                <TextBlock  VerticalAlignment="Center" Text="Reset Prizes" />
-            </Button>
         </StackPanel>
-        <Grid Background="Gray" Grid.ColumnSpan="3" Grid.Row="1">
+        <Grid Background="Gray" Grid.ColumnSpan="3" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
