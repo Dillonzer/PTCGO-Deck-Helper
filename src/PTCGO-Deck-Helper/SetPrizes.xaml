@@ -18,9 +18,15 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" x:Name="stp_Pokemon" CanVerticallyScroll="True"/>
-        <StackPanel Grid.Column="1" x:Name="stp_Trainers" CanVerticallyScroll="True"/>
-        <StackPanel Grid.Column="2" x:Name="stp_Energy" CanVerticallyScroll="True"/>
+        <ScrollViewer Grid.Column="0" >
+            <StackPanel x:Name="stp_Pokemon"/>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="1" >
+            <StackPanel x:Name="stp_Trainers"/>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="2" >
+            <StackPanel x:Name="stp_Energy"/>
+        </ScrollViewer>
         <Button x:Name="btn_SubmitPrizes" Grid.Column="2" Grid.Row="1" Margin="5,5,5,5" Content="Submit Prizes" Click="btn_SubmitPrizes_Click"></Button>
     </Grid>
 </Window>

@@ -45,7 +45,7 @@ namespace PTCGO_Deck_Helper
             foreach(var pokemon in _decklist.Pokemon)
             {
                 var control = new PrizeCardSelector(pokemon, _cards);
-                control.Height = 50;
+                control.Height = 65;
                 control.MouseDown += control.ChangeCount;
                 stp_Pokemon.Children.Add(control);
             }
@@ -53,7 +53,7 @@ namespace PTCGO_Deck_Helper
             foreach (var trainers in _decklist.Trainers)
             {
                 var control = new PrizeCardSelector(trainers, _cards);
-                control.Height = 50;
+                control.Height = 65;
                 control.MouseDown += control.ChangeCount;
                 stp_Trainers.Children.Add(control);
             }
@@ -61,7 +61,7 @@ namespace PTCGO_Deck_Helper
             foreach (var energy in _decklist.Energy)
             {
                 var control = new PrizeCardSelector(energy, _cards);
-                control.Height = 50;
+                control.Height = 65;
                 control.MouseDown += control.ChangeCount;
                 stp_Energy.Children.Add(control);
             }
