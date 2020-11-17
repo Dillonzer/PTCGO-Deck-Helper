@@ -109,5 +109,10 @@ namespace PTCGO_Deck_Helper
                 }
             }
         }
+
+        private void img_Card_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
