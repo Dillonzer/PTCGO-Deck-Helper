@@ -24,6 +24,7 @@ namespace PTCGO_Deck_Helper
     {
         private Decklist _decklist = new Decklist();
         private List<Card> _cards = new List<Card>();
+        public List<string> _prizes = new List<string>();
 
         public SetPrizes()
         {
@@ -45,6 +46,7 @@ namespace PTCGO_Deck_Helper
             {
                 var control = new PrizeCardSelector(pokemon, _cards);
                 control.Height = 50;
+                control.MouseDown += control.ChangeCount;
                 stp_Pokemon.Children.Add(control);
             }
 
@@ -52,6 +54,7 @@ namespace PTCGO_Deck_Helper
             {
                 var control = new PrizeCardSelector(trainers, _cards);
                 control.Height = 50;
+                control.MouseDown += control.ChangeCount;
                 stp_Trainers.Children.Add(control);
             }
 
@@ -59,6 +62,7 @@ namespace PTCGO_Deck_Helper
             {
                 var control = new PrizeCardSelector(energy, _cards);
                 control.Height = 50;
+                control.MouseDown += control.ChangeCount;
                 stp_Energy.Children.Add(control);
             }
         }

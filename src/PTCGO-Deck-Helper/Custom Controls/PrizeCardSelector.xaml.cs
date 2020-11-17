@@ -22,6 +22,7 @@ namespace PTCGO_Deck_Helper.Custom_Controls
     {
         public KeyValuePair<string, int> _cardInfo;
         public List<Card> _cards;
+        public int _cardCount;
 
         public PrizeCardSelector()
         {
@@ -33,6 +34,7 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             InitializeComponent();
             _cardInfo = cardInfo;
             _cards = cards;
+            _cardCount = cardInfo.Value;
             SetImageAndCount();
         }
 
@@ -50,6 +52,20 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             }
 
             tbx_CardCount.Text = _cardInfo.Value.ToString();
+        }
+
+        public void ChangeCount(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                _cardCount--;
+            }
+            else
+            {
+                _cardCount++;
+            }
+
+            tbx_CardCount.Text = _cardCount.ToString();
         }
     }
 }
