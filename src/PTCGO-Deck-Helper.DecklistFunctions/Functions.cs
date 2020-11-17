@@ -58,6 +58,7 @@ namespace PTCGO_Deck_Helper.DecklistFunctions
                 cardName = cardName.Replace(" {L}", " Lightning");
                 cardName = cardName.Replace(" {D}", " Dark");
                 cardName = cardName.Replace(" {P}", " Psychic");
+                cardName = cardName.Replace("é", "e");
 
                 return cards.Where(x => x.set.ptcgoCode.ToLower() == set.ToLower() && x.name.ToLower() == cardName.ToLower()).FirstOrDefault();
             }

@@ -8,88 +8,18 @@
         mc:Ignorable="d"
         Title="Set Prizes" Height="800" Width="1000"
     MinHeight="800" MinWidth="1000">
-    <Grid x:Name="grd_SetPrizes">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Image Grid.Column="0" Grid.Row="0" x:Name="img_Card1" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="0" x:Name="img_Card2" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="0" x:Name="img_Card3" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="0" x:Name="img_Card4" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="0" x:Name="img_Card5" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="0" x:Name="img_Card6" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="0" x:Name="img_Card7" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="0" x:Name="img_Card8" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="0" x:Name="img_Card9" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="0" x:Name="img_Card10" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="0" Grid.Row="1" x:Name="img_Card11" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="1" x:Name="img_Card12" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="1" x:Name="img_Card13" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="1" x:Name="img_Card14" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="1" x:Name="img_Card15" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="1" x:Name="img_Card16" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="1" x:Name="img_Card17" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="1" x:Name="img_Card18" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="1" x:Name="img_Card19" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="1" x:Name="img_Card20" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="0" Grid.Row="2" x:Name="img_Card21" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="2" x:Name="img_Card22" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="2" x:Name="img_Card23" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="2" x:Name="img_Card24" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="2" x:Name="img_Card25" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="2" x:Name="img_Card26" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="2" x:Name="img_Card27" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="2" x:Name="img_Card28" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="2" x:Name="img_Card29" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="2" x:Name="img_Card30" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="0" Grid.Row="3" x:Name="img_Card31" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="3" x:Name="img_Card32" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="3" x:Name="img_Card33" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="3" x:Name="img_Card34" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="3" x:Name="img_Card35" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="3" x:Name="img_Card36" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="3" x:Name="img_Card37" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="3" x:Name="img_Card38" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="3" x:Name="img_Card39" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="3" x:Name="img_Card40" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="0" Grid.Row="4" x:Name="img_Card41" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="4" x:Name="img_Card42" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="4" x:Name="img_Card43" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="4" x:Name="img_Card44" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="4" x:Name="img_Card45" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="4" x:Name="img_Card46" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="4" x:Name="img_Card47" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="4" x:Name="img_Card48" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="4" x:Name="img_Card49" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="4" x:Name="img_Card50" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="0" Grid.Row="5" x:Name="img_Card51" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="1" Grid.Row="5" x:Name="img_Card52" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="2" Grid.Row="5" x:Name="img_Card53" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="3" Grid.Row="5" x:Name="img_Card54" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="4" Grid.Row="5" x:Name="img_Card55" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="5" Grid.Row="5" x:Name="img_Card56" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="6" Grid.Row="5" x:Name="img_Card57" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="7" Grid.Row="5" x:Name="img_Card58" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="8" Grid.Row="5" x:Name="img_Card59" MouseDown="img_Card_MouseDown"/>
-        <Image Grid.Column="9" Grid.Row="5" x:Name="img_Card60" MouseDown="img_Card_MouseDown"/>
-        <Button x:Name="btn_SubmitPrizes" Content="Submit Prizes" Grid.Column="8"  Grid.ColumnSpan="2" Grid.Row="6" Margin="0,10,5,5"></Button>
+        <StackPanel Grid.Column="0" x:Name="stp_Pokemon" CanVerticallyScroll="True"/>
+        <StackPanel Grid.Column="1" x:Name="stp_Trainers" CanVerticallyScroll="True"/>
+        <StackPanel Grid.Column="2" x:Name="stp_Energy" CanVerticallyScroll="True"/>
     </Grid>
 </Window>
