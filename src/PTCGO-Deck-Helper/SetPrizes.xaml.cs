@@ -25,6 +25,7 @@ namespace PTCGO_Deck_Helper
         private Decklist _decklist = new Decklist();
         private List<Card> _cards = new List<Card>();
         public List<string> _prizes = new List<string>();
+        public Dictionary<int, string> _prizeCardSlots = new Dictionary<int, string>();
 
         public SetPrizes()
         {
@@ -89,7 +90,7 @@ namespace PTCGO_Deck_Helper
                     }
                     else
                     {
-                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        MessageBox.Show("You have too many prizes selected. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         _prizes = new List<string>();
                         return;
                     }
@@ -116,7 +117,7 @@ namespace PTCGO_Deck_Helper
                     }
                     else
                     {
-                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        MessageBox.Show("You have too many prizes selected. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         _prizes = new List<string>();
                         return;
                     }
@@ -144,7 +145,7 @@ namespace PTCGO_Deck_Helper
                     }
                     else
                     {
-                        MessageBox.Show("You have too many prizes selected. Please try again.");
+                        MessageBox.Show("You have too many prizes selected. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         _prizes = new List<string>();
                         return;
                     }
@@ -152,10 +153,9 @@ namespace PTCGO_Deck_Helper
                 
             }
 
-            if(_prizes.Count != 6)
+            if(_prizes.Count() != 6)
             {
-                MessageBox.Show("You have not selected 6 prizes. Please try again."); 
-                _prizes = new List<string>();
+                var confirm = MessageBox.Show($"You have not selected 6 prizes. Please confirm you want to proceed with only {_prizes.Count()}.", "Prize Setup", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 return;
             }
 
