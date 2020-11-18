@@ -19,13 +19,13 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Column="0" >
-            <StackPanel x:Name="stp_Pokemon"/>
+            <WrapPanel x:Name="stp_Pokemon" FlowDirection="LeftToRight"/>
         </ScrollViewer>
         <ScrollViewer Grid.Column="1" >
-            <StackPanel x:Name="stp_Trainers"/>
+            <WrapPanel x:Name="stp_Trainers" FlowDirection="LeftToRight"/>
         </ScrollViewer>
         <ScrollViewer Grid.Column="2" >
-            <StackPanel x:Name="stp_Energy"/>
+            <WrapPanel x:Name="stp_Energy" FlowDirection="LeftToRight"/>
         </ScrollViewer>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
