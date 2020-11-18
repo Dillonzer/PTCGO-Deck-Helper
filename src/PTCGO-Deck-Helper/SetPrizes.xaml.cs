@@ -156,11 +156,12 @@ namespace PTCGO_Deck_Helper
                 
             }
 
-            if(_prizes.Count() != 6)
+            if(_prizes.Count() < 6)
             {
                 var confirm = MessageBox.Show($"You have not selected 6 prizes. Please confirm you want to proceed with only {_prizes.Count()}.", "Prize Setup", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (confirm != MessageBoxResult.Yes)
                 {
+                    _prizes = new List<string>();
                     return;
                 }
             }
@@ -169,12 +170,43 @@ namespace PTCGO_Deck_Helper
             {
                 if (window.GetType() == typeof(MainWindow))
                 {
-                    (window as MainWindow).prz_One.SetPrize(_prizes[0]);
-                    (window as MainWindow).prz_Two.SetPrize(_prizes[1]);
-                    (window as MainWindow).prz_Three.SetPrize(_prizes[2]);
-                    (window as MainWindow).prz_Four.SetPrize(_prizes[3]);
-                    (window as MainWindow).prz_Five.SetPrize(_prizes[4]);
-                    (window as MainWindow).prz_Six.SetPrize(_prizes[5]);
+                    for (var i = 0; i < _prizes.Count(); i++)
+                    {
+                        if (i == 0)
+                        {
+                            (window as MainWindow).prz_One.SetPrize(_prizes[0]);
+                            continue;
+                        }
+
+                        if (i == 1)
+                        {
+                            (window as MainWindow).prz_Two.SetPrize(_prizes[1]);
+                            continue;
+                        }
+
+                        if (i == 2)
+                        {
+                            (window as MainWindow).prz_Three.SetPrize(_prizes[2]);
+                            continue;
+                        }
+
+                        if (i == 3)
+                        {
+                            (window as MainWindow).prz_Four.SetPrize(_prizes[3]);
+                            continue;
+                        }
+
+                        if (i == 4)
+                        {
+                            (window as MainWindow).prz_Five.SetPrize(_prizes[4]);
+                            continue;
+                        }
+
+                        if (i == 5)
+                        {
+                            (window as MainWindow).prz_Six.SetPrize(_prizes[5]);
+                        }
+                    }
                 }
             }
 

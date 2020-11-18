@@ -165,7 +165,6 @@ namespace PTCGO_Deck_Helper.Custom_Controls
                         }
                     }
 
-                    //DO SWITCH ON COUNT AND SHOW IMAGE ADD TO PRIZE SPOTS AVAILABLE
                     for (var i = 1; i <= 6; i++)
                     {
                         if(prizeSpotsAvailable[i] == string.Empty)
