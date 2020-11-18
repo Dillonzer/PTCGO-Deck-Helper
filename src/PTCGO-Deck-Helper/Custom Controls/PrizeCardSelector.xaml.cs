@@ -94,7 +94,7 @@ namespace PTCGO_Deck_Helper.Custom_Controls
             }
             else
             {
-                if (_cardCount < 4 && _cardCount < _cardInfo.Value)
+                if (_cardCount < _cardInfo.Value)
                 {
                     _amountPrized--;
                     _cardCount++;
@@ -132,92 +132,121 @@ namespace PTCGO_Deck_Helper.Custom_Controls
                         {
                             if(_cardInfo.Key == kvp.Value)
                             {
-                                //DO A SWITCH ON THE KEY AND THEN HIDE THE SPECIFIC IMAGE
-                                //RETURN
+                                switch (kvp.Key)
+                                {
+                                    case 1:
+                                        prizeSpotsAvailable[1] = string.Empty;
+                                        (window as SetPrizes).img_Prize1.Visibility = Visibility.Hidden;
+                                        break;
+                                    case 2:
+                                        prizeSpotsAvailable[2] = string.Empty; 
+                                        (window as SetPrizes).img_Prize2.Visibility = Visibility.Hidden;
+                                        break;
+                                    case 3:
+                                        prizeSpotsAvailable[3] = string.Empty; 
+                                        (window as SetPrizes).img_Prize3.Visibility = Visibility.Hidden;
+                                        break;
+                                    case 4:
+                                        prizeSpotsAvailable[4] = string.Empty;
+                                        (window as SetPrizes).img_Prize4.Visibility = Visibility.Hidden;
+                                        break;
+                                    case 5:
+                                        prizeSpotsAvailable[5] = string.Empty; 
+                                        (window as SetPrizes).img_Prize5.Visibility = Visibility.Hidden;
+                                        break;
+                                    case 6:
+                                        prizeSpotsAvailable[6] = string.Empty;
+                                        (window as SetPrizes).img_Prize6.Visibility = Visibility.Hidden;
+                                        break;
+                                }
+
+                                return;
                             }
                         }
                     }
 
-                    prizeSpotsAvailable.Add(prizeSpotsAvailable.Count, _cardInfo.Key);
-                    //DO SWITCH ON COUNT AND SHOW IMAGE
+                    //DO SWITCH ON COUNT AND SHOW IMAGE ADD TO PRIZE SPOTS AVAILABLE
+                    for (var i = 1; i <= 6; i++)
+                    {
+                        if(prizeSpotsAvailable[i] == string.Empty)
+                        {
+                            prizeSpotsAvailable[i] = _cardInfo.Key;
+                            switch (i)
+                            {
+                                case 1:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize1.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize1.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
 
-                    //switch(currentAmountPrized)
-                    //{
-                    //    case 0:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize1.Visibility = Visibility.Hidden;
-                    //        }
-                    //        break;
-                    //    case 1:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize2.Visibility = Visibility.Hidden;
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize1.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize1.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    case 2:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize3.Visibility = Visibility.Hidden;
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize2.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize2.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    case 3:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize4.Visibility = Visibility.Hidden;
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize3.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize3.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    case 4:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize5.Visibility = Visibility.Hidden;
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize4.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize4.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    case 5:
-                    //        if (decrease)
-                    //        {
-                    //            (window as SetPrizes).img_Prize6.Visibility = Visibility.Hidden;
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize5.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize5.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    case 6:
-                    //        if (decrease)
-                    //        {
+                                    (window as SetPrizes).img_Prize1.Visibility = Visibility.Visible;
+                                    return;
+                                case 2:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize2.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize2.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
+                                    (window as SetPrizes).img_Prize2.Visibility = Visibility.Visible;
+                                    return;
+                                case 3:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize3.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize3.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
+                                    (window as SetPrizes).img_Prize3.Visibility = Visibility.Visible;
+                                    return;
+                                case 4:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize4.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize4.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
+                                    (window as SetPrizes).img_Prize4.Visibility = Visibility.Visible;
+                                    return;
+                                case 5:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize5.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize5.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
+                                    (window as SetPrizes).img_Prize5.Visibility = Visibility.Visible;
+                                    return;
+                                case 6:
+                                    if (_apiCardInfo != null)
+                                    {
+                                        (window as SetPrizes).img_Prize6.Source = new BitmapImage(new Uri(_apiCardInfo.imageUrlHiRes));
+                                    }
+                                    else
+                                    {
+                                        (window as SetPrizes).img_Prize6.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
+                                    }
+                                    (window as SetPrizes).img_Prize6.Visibility = Visibility.Visible;
+                                    return;
+                            }
 
-                    //        }
-                    //        else
-                    //        {
-                    //            (window as SetPrizes).img_Prize6.Source = new BitmapImage(new Uri("/Resources/default-card-image.png", UriKind.Relative));
-                    //            (window as SetPrizes).img_Prize6.Visibility = Visibility.Visible;
-                    //        }
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
+                        }
+
+                    }
+
+                    
                 }
             }
         }

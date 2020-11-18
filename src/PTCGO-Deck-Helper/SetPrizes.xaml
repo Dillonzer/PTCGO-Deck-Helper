@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PTCGO_Deck_Helper"
         xmlns:Custom_Controls="clr-namespace:PTCGO_Deck_Helper.Custom_Controls" x:Class="PTCGO_Deck_Helper.SetPrizes"
         mc:Ignorable="d"
-        Title="Set Prizes" Height="800" Width="1000"
+        Title="Set Prizes" Height="800" Width="1500"
     MinHeight="800" MinWidth="1000">
     <Grid Background="DarkGray">
         <Grid.ColumnDefinitions>
@@ -19,21 +19,21 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Column="0" >
-            <WrapPanel x:Name="stp_Pokemon" FlowDirection="LeftToRight"/>
+            <WrapPanel x:Name="stp_Pokemon" FlowDirection="LeftToRight" Margin="0,5,0,0"/>
         </ScrollViewer>
         <ScrollViewer Grid.Column="1" >
-            <WrapPanel x:Name="stp_Trainers" FlowDirection="LeftToRight"/>
+            <WrapPanel x:Name="stp_Trainers" FlowDirection="LeftToRight" Margin="0,5,0,0"/>
         </ScrollViewer>
         <ScrollViewer Grid.Column="2" >
-            <WrapPanel x:Name="stp_Energy" FlowDirection="LeftToRight"/>
+            <WrapPanel x:Name="stp_Energy" FlowDirection="LeftToRight" Margin="0,5,0,0"/>
         </ScrollViewer>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Current Prizes Selected:" FontSize="26" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"/>
-            <TextBlock x:Name="tbx_CurrentPrizeCount" Grid.Column="1" Text="0" FontSize="50" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Current Prizes Selected:" FontSize="25" VerticalAlignment="Center" Margin="5,0,0,0" Height="33"/>
+            <TextBlock x:Name="tbx_CurrentPrizeCount" Grid.Column="1" Text="0" FontSize="50" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,195,0"/>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -45,12 +45,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Image Source="/Resources/default-card-image.png" Grid.Column="0" x:Name="img_Prize1" Margin="0,2,2,2" Visibility="Hidden"/>
-            <Image Source="/Resources/default-card-image.png" Grid.Column="1" x:Name="img_Prize2" Margin="-50,2,2,2" Visibility="Hidden"/>
-            <Image Source="/Resources/default-card-image.png" Grid.Column="2" x:Name="img_Prize3" Margin="-100,2,2,2" Visibility="Hidden"/>
-            <Image Source="/Resources/default-card-image.png" Grid.Column="3" x:Name="img_Prize4" Margin="-150,2,2,2" Visibility="Hidden"/>
-            <Image Source="/Resources/default-card-image.png" Grid.Column="4" x:Name="img_Prize5" Margin="-200,2,2,2" Visibility="Hidden"/>
-            <Image Source="/Resources/default-card-image.png" Grid.Column="5" x:Name="img_Prize6" Margin="-250,2,2,2" Visibility="Hidden"/>
+            <Image Source="/Resources/default-card-image.png" Grid.Column="1" x:Name="img_Prize2" Margin="0,2,2,2" Visibility="Hidden"/>
+            <Image Source="/Resources/default-card-image.png" Grid.Column="2" x:Name="img_Prize3" Margin="0,2,2,2" Visibility="Hidden"/>
+            <Image Source="/Resources/default-card-image.png" Grid.Column="3" x:Name="img_Prize4" Margin="0,2,2,2" Visibility="Hidden"/>
+            <Image Source="/Resources/default-card-image.png" Grid.Column="4" x:Name="img_Prize5" Margin="0,2,2,2" Visibility="Hidden"/>
+            <Image Source="/Resources/default-card-image.png" Grid.Column="5" x:Name="img_Prize6" Margin="0,2,2,2" Visibility="Hidden"/>
         </Grid>
-        <Button x:Name="btn_SubmitPrizes" Grid.Column="2" Grid.Row="1" Margin="5,5,5,5" Content="Submit Prizes" Click="btn_SubmitPrizes_Click"></Button>
+        <Button x:Name="btn_SubmitPrizes" Grid.Column="2" Grid.Row="1" Margin="300,5,5,5" Content="Submit Prizes" Click="btn_SubmitPrizes_Click"/>
     </Grid>
 </Window>

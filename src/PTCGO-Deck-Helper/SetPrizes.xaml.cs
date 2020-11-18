@@ -25,7 +25,7 @@ namespace PTCGO_Deck_Helper
         private Decklist _decklist = new Decklist();
         private List<Card> _cards = new List<Card>();
         public List<string> _prizes = new List<string>();
-        public Dictionary<int, string> _prizeCardSlots = new Dictionary<int, string>();
+        public Dictionary<int, string> _prizeCardSlots = new Dictionary<int, string> {{1, string.Empty},{2, string.Empty},{3, string.Empty},{4, string.Empty},{5, string.Empty},{6, string.Empty}};
 
         public SetPrizes()
         {
