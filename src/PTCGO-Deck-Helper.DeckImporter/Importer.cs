@@ -60,7 +60,7 @@ namespace PTCGO_Deck_Helper.DeckImporter
 
                     var lineItem = line.Split(" ");
                     var cardName = string.Empty;
-                    for (var i = 2; i < lineItem.Length - 1; i++)
+                    for (var i = 2; i < lineItem.Length; i++)
                     {
                         cardName += lineItem[i] + " ";
                     }

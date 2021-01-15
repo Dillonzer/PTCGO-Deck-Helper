@@ -37,8 +37,10 @@ namespace PTCGO_Deck_Helper.DecklistFunctions
         {
             try
             {
-                var set = card.Split(" ").LastOrDefault().Trim(); ;
-                var cardName = card.Substring(0, card.LastIndexOf(" "));
+                var cardNumber = card.Split(" ").LastOrDefault().Trim();
+                var restOfCard = card.Substring(0, card.LastIndexOf(" "));
+                var cardName = restOfCard.Substring(0, restOfCard.LastIndexOf(" "));
+                var set = restOfCard.Split(" ").LastOrDefault().Trim();
 
                 //Just a way to get energy
                 if (set.Contains("Energy"))
@@ -60,7 +62,19 @@ namespace PTCGO_Deck_Helper.DecklistFunctions
                 cardName = cardName.Replace(" {P}", " Psychic");
                 cardName = cardName.Replace("é", "e");
 
-                return cards.Where(x => x.set.ptcgoCode.ToLower() == set.ToLower() && x.name.ToLower() == cardName.ToLower()).FirstOrDefault();
+                var cardResults = cards.Where(x => x.set.ptcgoCode.ToLower() == set.ToLower() && x.name.ToLower() == cardName.ToLower());
+                var correctCard = cardResults.FirstOrDefault(x => x.number.ToLower() == cardNumber.ToLower());
+
+                if(correctCard == null)
+                {
+                    correctCard = cardResults.FirstOrDefault(x => x.number.ToLower().Contains(cardNumber.ToLower()));
+                    if (correctCard == null)
+                    {
+                        return cardResults.FirstOrDefault();
+                    }
+                }
+
+                return correctCard;
             }
             catch(Exception ex)
             {
